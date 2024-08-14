@@ -4,6 +4,7 @@ import dog from "../img/dog2.jpeg";
 import { Link } from "react-router-dom";
 import { format } from 'timeago.js';
 import axios from "axios";
+import LikeDisLike from "./LikeDisLike";
 
 
 const Container = styled.div`
@@ -56,6 +57,7 @@ const Info = styled.div`
 `;
 
 const Card = ({ type , video }) => {
+
   const [channel, setChannel] = useState({});
 
   useEffect(() => {
@@ -78,6 +80,7 @@ const Card = ({ type , video }) => {
             <ChannelName>{channel.name}</ChannelName>
             <Info>{video.views} views {format(video.createdAt)}</Info>
           </Texts>
+          <LikeDisLike videoUrl={"dhfsdhfl"}/>
         </Details>
       </Container>
     </Link>

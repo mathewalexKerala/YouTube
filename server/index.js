@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/users.js";
 import videoRoutes from "./routes/video.js";
 import commentRoutes from "./routes/comments.js";
+import likeDislikeRoutes from './routes/likeDislikeRoutes.js'
 import authRoutes from "./routes/auth.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -37,6 +38,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/videos", videoRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/likeDislike", likeDislikeRoutes);
 
 app.use((err, req, res, next) => {
   const status = err.status || 500;

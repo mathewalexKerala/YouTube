@@ -14,7 +14,9 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const response = await axios.get(`/videos/${type}`);
+      const response = await axios.get(`http://localhost:5000/api/videos/${type}`).then(()=>{
+        console.log(response,'this is response')
+      })
       setVideos(response.data);
     };
     fetchVideos();
@@ -23,7 +25,7 @@ const Home = ({ type }) => {
   return (
     <Container>
       {videos.map((video) => (
-        <Card key={video._id} video ={video}/>
+        <Card key={video._id} type={type} video ={video}/>
       ))}
     </Container>
   );
